@@ -11,4 +11,6 @@ mv libz.so.1 libz.so.1.old
 ln -s /lib/libz.so.1
 - Découverte de la doc SoftBank Robotics
 - Tests avec qicli pour faire des appels à l'API NAOqi en lignes de commande (postures)
-
+- Prise en photo du plan d'intervention du rdc de TC, traitement sur Photoshop pour avoir une carte propre en noir et blanc (format pgm)
+- Tests de navigation avec rviz (config fournie), en fournissant des nav goal --> pas très précis.
+- Test de passage de porte : ok mais apparemment s'il porte un truc dans sa main, il devient trop large et il peut ne pas passer --> il faudrait le faire tourner et passer la porte sur le côté.
