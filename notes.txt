@@ -1,0 +1,14 @@
+# 16/12
+- Présentation de Pepper par Benoît (capteurs, actuateurs)
+Les moteurs chauffent vite, il faut régulièrement mettre Pepper en veille pour le reposer.
+- Config de la connexion Ethernet avec Pepper
+- Connexion à notre propre réseau Wi-Fi
+Possibilité de contrôler les réglages du robot en accédant à l'interface depuis nos PC sur l'@ IP de Pepper. Contrôles avancés avec ip/advanced.
+- Lancement de Choregraphe pour contrôler le robot
+Petit trick avec lien symbolique pour zlib :
+cd /<choregraphe_folder>/lib/ # (the directory containing libz.so.1)
+mv libz.so.1 libz.so.1.old
+ln -s /lib/libz.so.1
+- Découverte de la doc SoftBank Robotics
+- Tests avec qicli pour faire des appels à l'API NAOqi en lignes de commande (postures)
+
