@@ -45,6 +45,9 @@ You will then have to enable ip transmission
 # Launch
 In order to launch the nodes, you will have to launch the following commands
 
+You should use them in a screen : `screen -S name_of_the_screen`
+You can exit the screen using 'Ctrl+a D' and resume it using the `screen -c name_of_the_screen`
+
 ```
 source ${HOME}/gentoo/opt/ros/kinetic/setup.bash
 source ${HOME}/ros_robocup_ws/devel/setup.bash
@@ -59,39 +62,6 @@ roslaunch navigation_manager navigation_mng_overall.launch
 ```
 
 Make sure that `NAO_IP` is set to the correct IP.
-
-
-# Map manager
-
-## Launch
-
-additionnal dependencies :
-- [rospy_message_converter](https://github.com/uos/rospy_message_converter)
-
-start using the command
-```
-source ${HOME}/gentoo/opt/ros/kinetic/setup.bash
-source ${HOME}/ros_robocup_ws/devel/setup.bash
-rosrun map_manager MapTools.py _confPath:="/home/nao/interest_points/"
-```
-
-## Add intererest points
-
-Add files in `/home/nao/interest_points`
-
-example.coord
-```
-
-```
-
-# Warnings
-
-- Don't forget to verify hosts and ip
-- `ROS_HOSTNAME` should be set to the ip of the host as the `/etc/hosts` can't be modified on the robot
-- config path for the map_manager must be set with the final '/'
-
-# Improvement ideas
-- use python path library to avoid errors when forget '/' in path
 
 
 # Modules
@@ -126,7 +96,7 @@ example.coord
 ### Improvement ideas
 - use python path library to avoid errors when forget '/' in path
 
-## Map manager
+## Navigation manager
 
 ### Different strategy types
 
@@ -155,7 +125,7 @@ SimplyGoNavStrategy
 
 ### Usage
 
-Usage of
+Usage of the navigation manager
 
 The following messages must be sent on the `/gm_bus_command` topic.
 
