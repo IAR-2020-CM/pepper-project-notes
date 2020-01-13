@@ -46,8 +46,7 @@ You will then have to enable ip transmission
 In order to launch the nodes, you will have to launch the following commands
 
 You should use them in a screen : `screen -S name_of_the_screen`
-You can exit the screen using 'Ctrl+a D' and resume it using the `screen -c name_of_the_screen`
-
+You can exit the screen using 'Ctrl+a D' and resume it using the `screen -r name_of_the_screen`
 ```
 source ${HOME}/gentoo/opt/ros/kinetic/setup.bash
 source ${HOME}/ros_robocup_ws/devel/setup.bash
@@ -73,9 +72,18 @@ Make sure that `NAO_IP` is set to the correct IP.
 additionnal dependencies :
 - [rospy_message_converter](https://github.com/uos/rospy_message_converter)
 
-start using the command
+Add points start the map manager tool using the command
 ```
+source ${HOME}/gentoo/opt/ros/kinetic/setup.bash
+source ${HOME}/ros_robocup_ws/devel/setup.bash
 rosrun map_manager MapTools.py _confPath:="/home/nao/interest_points/"
+```
+
+In order to run the map manager, use
+```
+source ${HOME}/gentoo/opt/ros/kinetic/setup.bash
+source ${HOME}/ros_robocup_ws/devel/setup.bash
+rosrun map_manager MapManager.py _confPath:="/home/nao/interest_points/"
 ```
 
 ### Add interest points
@@ -130,7 +138,8 @@ Usage of the navigation manager
 The following messages must be sent on the `/gm_bus_command` topic.
 
 Action will be "go to interest point"
-TODO: find how to use and add examples
+TODO: find how to use and add examples (look in `NavMng.action`)
+
 
 ```
 string action
@@ -138,3 +147,16 @@ string action_id
 string payload
 int64 result
 ```
+
+# Door detection
+
+## Problem with current implementation
+- easy possibility of error detection (example : if the final dest of the robot is in front of the door)
+    - therefore, the door detection must be improved
+
+# Improvements
+
+- better « door on path » detection
+- better documentation for navigation_manager
+- remove useless strategies
+- remove dead code
